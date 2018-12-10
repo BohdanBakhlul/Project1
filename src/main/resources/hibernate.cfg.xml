@@ -6,13 +6,13 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">0PJUEm1BKQZ95Klt</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ShopDB</property>
+        <property name="hibernate.connection.password">4JOkarA5YGvun1Si</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbcars</property>
         <property name="hibernate.connection.username">debian-sys-maint</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
 
-        <mapping resource="Shop.hbm.xml"/>
+        <mapping resource="Car.hbm.xml"/>
         <!--<mapping resource="BeerType.hbm.xml"/>-->
         <!--<mapping resource="BeerTypeDescription.hbm.xml"/>-->
         <!--<mapping resource="BeerTypeHistory.xbm.xml"/>-->

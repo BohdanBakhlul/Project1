@@ -10,13 +10,13 @@ public class Main {
 
         session.beginTransaction();
 
-        Shop shop = new Shop();
+        Car car = new Car();
 
-        shop.setName("Molotok");
-        shop.setRoom_area(60);
-        shop.setShop_location("Something");
+        car.setCreator("Mercedes");
+        car.setModel("E63s");
+        car.setCountry("Germany");
 
-        session.save(shop);
+        session.save(car);
 
         session.getTransaction().commit();
         System.out.println("Done");
