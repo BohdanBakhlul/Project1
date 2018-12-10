@@ -25,8 +25,7 @@
        <property name="ID" type="int">
            <column name="ID" length="5" not-null="true" unique="true" />
        </property>
-       <one-to-one name="ID" class="Entity.Car"
-                    column="ID" not-null="true"/>
+       <one-to-one name="ID" constrained="true" class="Entity.Car"/>
    </class>
 
 </hibernate-mapping>

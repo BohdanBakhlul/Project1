@@ -18,6 +18,13 @@ public class Main {
 
         session.save(car);
 
+        Carspecs carspecs = new Carspecs();
+        carspecs.setBody("sport4");
+        carspecs.setColor("white");
+        carspecs.setEngine_size(6);
+
+        session.save(carspecs);
+
         session.getTransaction().commit();
         System.out.println("Done");
 

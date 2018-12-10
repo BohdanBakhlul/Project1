@@ -8,7 +8,7 @@ public class Carspecs {
     private Integer ID;
     private String body;
     private String color;
-    private Float engine_size;
+    private Integer engine_size;
     private Car car;
 
     public Carspecs() {}
@@ -46,11 +46,11 @@ public class Carspecs {
         this.color = color;
     }
 
-    public Float getEngine_size() {
+    public Integer getEngine_size() {
         return engine_size;
     }
 
-    public void setEngine_size(Float engine_size) {
+    public void setEngine_size(Integer engine_size) {
         this.engine_size = engine_size;
     }
 
