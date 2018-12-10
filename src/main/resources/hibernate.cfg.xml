@@ -15,8 +15,7 @@
         <mapping resource="Car.hbm.xml"/>
         <mapping resource="Carspecs.hbm.xml"/>
         <mapping resource="Car_creators.hbm.xml"/>
-        <!--<mapping resource="BeerTypeHistory.xbm.xml"/>-->
-        <!--<mapping resource="Manufacturer.xbm.xml"/>-->
-        <!--<mapping resource="Packaging.hbm.xml"/>-->
+        <mapping resource="Car_orders.hbm.xml"/>
+        <mapping resource="Delivery.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
