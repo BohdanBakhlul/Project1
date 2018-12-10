@@ -14,7 +14,7 @@
 
         <mapping resource="Car.hbm.xml"/>
         <mapping resource="Carspecs.hbm.xml"/>
-        <!--<mapping resource="BeerTypeDescription.hbm.xml"/>-->
+        <mapping resource="Car_creators.hbm.xml"/>
         <!--<mapping resource="BeerTypeHistory.xbm.xml"/>-->
         <!--<mapping resource="Manufacturer.xbm.xml"/>-->
         <!--<mapping resource="Packaging.hbm.xml"/>-->

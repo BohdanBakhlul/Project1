@@ -1056,7 +1056,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="234" name="SPEC_ID">
+    <column id="257" parent="234" name="CAR_ID">
       <Position>2</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1080,8 +1080,8 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="261" parent="234" name="SPEC_ID">
-      <ColNames>SPEC_ID</ColNames>
+    <index id="261" parent="234" name="CAR_ID">
+      <ColNames>CAR_ID</ColNames>
       <Type>btree</Type>
     </index>
     <key id="262" parent="234" name="PRIMARY">
@@ -1090,7 +1090,7 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="263" parent="234" name="carspecs_ibfk_1">
-      <ColNames>SPEC_ID</ColNames>
+      <ColNames>CAR_ID</ColNames>
       <RefSchemaName>dbcars</RefSchemaName>
       <RefTableName>car</RefTableName>
       <RefColNames>ID</RefColNames>

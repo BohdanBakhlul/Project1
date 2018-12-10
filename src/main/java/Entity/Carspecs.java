@@ -4,7 +4,6 @@ public class Carspecs {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer SPEC_ID;
     private Integer ID;
     private String body;
     private String color;
@@ -13,14 +12,6 @@ public class Carspecs {
 
     public Carspecs() {}
 
-
-    public Integer getSPEC_ID() {
-        return SPEC_ID;
-    }
-
-    public void setSPEC_ID(Integer SPEC_ID) {
-        this.SPEC_ID = SPEC_ID;
-    }
 
     public Integer getID() {
         return ID;

@@ -8,6 +8,7 @@ public class Car  {
     private String creator;
     private String model;
     private String country;
+    private Carspecs carspecs;
 
     public Car() {}
 
@@ -41,5 +42,13 @@ public class Car  {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Carspecs getCarspecs() {
+        return carspecs;
+    }
+
+    public void setCarspecs(Carspecs carspecs) {
+        this.carspecs = carspecs;
     }
 }
