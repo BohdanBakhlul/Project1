@@ -9,6 +9,7 @@ public class Carspecs {
     private String body;
     private String color;
     private Float engine_size;
+    private Car car;
 
     public Carspecs() {}
 
@@ -51,5 +52,13 @@ public class Carspecs {
 
     public void setEngine_size(Float engine_size) {
         this.engine_size = engine_size;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }

@@ -921,35 +921,229 @@
     <table id="231" parent="3" name="car">
       <Collation>utf8_general_ci</Collation>
     </table>
-    <column id="232" parent="231" name="ID">
+    <table id="232" parent="3" name="car_creators">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="233" parent="3" name="car_orders">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="234" parent="3" name="carspecs">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="235" parent="3" name="delivery">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <column id="236" parent="231" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="231" name="CREATOR">
+    <column id="237" parent="231" name="CREATOR">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="231" name="MODEL">
+    <column id="238" parent="231" name="MODEL">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="231" name="COUNTRY">
+    <column id="239" parent="231" name="COUNTRY">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="236" parent="231" name="PRIMARY">
+    <key id="240" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="241" parent="232" name="ID">
+      <Position>1</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="232" name="PERS_ID">
+      <Position>2</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="232" name="NAME">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="232" name="SURNAME">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="245" parent="232" name="PERS_ID">
+      <ColNames>PERS_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="246" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="247" parent="232" name="car_creators_ibfk_1">
+      <ColNames>PERS_ID</ColNames>
+      <RefSchemaName>dbcars</RefSchemaName>
+      <RefTableName>car</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="248" parent="233" name="ID">
+      <Position>1</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="233" name="ORDER_ID">
+      <Position>2</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="233" name="MODEL">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="251" parent="233" name="CITY">
+      <Position>4</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="252" parent="233" name="AMOUNT">
+      <Position>5</Position>
+      <DataType>int(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="253" parent="233" name="ORDER_ID">
+      <ColNames>ORDER_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="254" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="255" parent="233" name="car_orders_ibfk_1">
+      <ColNames>ORDER_ID</ColNames>
+      <RefSchemaName>dbcars</RefSchemaName>
+      <RefTableName>car</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="256" parent="234" name="ID">
+      <Position>1</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="234" name="SPEC_ID">
+      <Position>2</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="234" name="BODY">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="234" name="COLOR">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="234" name="ENGINE_SIZE">
+      <Position>5</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="261" parent="234" name="SPEC_ID">
+      <ColNames>SPEC_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="262" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="263" parent="234" name="carspecs_ibfk_1">
+      <ColNames>SPEC_ID</ColNames>
+      <RefSchemaName>dbcars</RefSchemaName>
+      <RefTableName>car</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="264" parent="235" name="ID">
+      <Position>1</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="235" name="TYPE">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="235" name="ORDER_ID">
+      <Position>3</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="235" name="CAR_ID">
+      <Position>4</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="268" parent="235" name="ORDER_ID">
+      <ColNames>ORDER_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="269" parent="235" name="CAR_ID">
+      <ColNames>CAR_ID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="270" parent="235" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="271" parent="235" name="delivery_ibfk_1">
+      <ColNames>ORDER_ID</ColNames>
+      <RefSchemaName>dbcars</RefSchemaName>
+      <RefTableName>car_orders</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="272" parent="235" name="delivery_ibfk_2">
+      <ColNames>CAR_ID</ColNames>
+      <RefSchemaName>dbcars</RefSchemaName>
+      <RefTableName>car</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>
