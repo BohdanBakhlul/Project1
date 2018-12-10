@@ -5,8 +5,8 @@
 <hibernate-mapping>
 
     <class name="Entity.Carspecs" table="carspecs" catalog="dbcars">
-       <id name="SPEC_ID" type="java.lang.Integer">
-           <column name="SPEC_ID" length="10"/>
+       <id name="ID" type="java.lang.Integer">
+           <column name="ID" length="10"/>
            <generator class="native" />
        </id>
 
@@ -22,10 +22,7 @@
            <column name="ENGINE_SIZE" length="5" not-null="true" unique="true" />
        </property>
 
-       <property name="ID" type="int">
-           <column name="ID" length="5" not-null="true" unique="true" />
-       </property>
-       <one-to-one name="ID" constrained="true" class="Entity.Car"/>
+       <one-to-one name="car" constrained="true" class="Entity.Car"/>
    </class>
 
 </hibernate-mapping>
