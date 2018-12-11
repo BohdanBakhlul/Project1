@@ -10,7 +10,7 @@ public class Car_orders {
     private String city;
     private Integer amount;
     private Car car;
-    private Delivery delivery;
+ //   private Delivery delivery;
 
     public Car_orders() {
     }
@@ -63,12 +63,12 @@ public class Car_orders {
         this.car = car;
     }
 
-    public Delivery getDelivery() {
-        return delivery;
-    }
-
-    public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
-    }
+//    public Delivery getDelivery() {
+//        return delivery;
+//    }
+//
+//    public void setDelivery(Delivery delivery) {
+//        this.delivery = delivery;
+//    }
 
 }

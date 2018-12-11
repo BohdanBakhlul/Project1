@@ -1,7 +1,9 @@
 import Entity.*;
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.hibernate.Query;
 import persistence.*;
 import org.hibernate.Session;
@@ -14,12 +16,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        test2();
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession(); //zapolniayem ebatb
-//
-//        session.beginTransaction(); //DEFAULT
 
+
+        Session session = HibernateUtil.getSessionFactory().openSession(); //zapolniayem ebatb
+
+//        session.beginTransaction(); //DEFAULT
+//
 //        Car car = new Car();
 //        car.setCreator("Mercedes");
 //        car.setModel("E63s");
@@ -41,9 +43,6 @@ public class Main {
 //        carspecs2.setBody("coupe");
 //        carspecs2.setColor("red");
 //        carspecs2.setEngine_size(4);
-//        List<Carspecs> cs = new ArrayList<Carspecs>();
-//        cs.add(carspecs);
-//        cs.add(carspecs2);
 //
 //        Car_creators car_creators = new Car_creators();
 //        car_creators.setCar(car);
@@ -61,7 +60,7 @@ public class Main {
 //        car_creators3.setSurname("Smith");
 //
 //        Car_creators car_creators4 = new Car_creators();
-//        car_creators4.setCar(car);
+//        car_creators4.setCar(car2);
 //        car_creators4.setName("Denis");
 //        car_creators4.setSurname("Dub");
 //
@@ -77,17 +76,15 @@ public class Main {
 //        car_orders2.setAmount(3);
 //        car_orders2.setComments("until spring");
 //
-//        List<Car_orders> co = new ArrayList<Car_orders>();
+//        List<Car_orders> co = new ArrayList<Car_orders>(); hueta
 //        co.add(car_orders);
 //        co.add(car_orders2);
 //
 //        Delivery delivery = new Delivery();
-//        delivery.setCar(car);
 //        delivery.setCar_orders(car_orders);
 //        delivery.setType("plane");
 //
 //        Delivery delivery2 = new Delivery();
-//        delivery2.setCar(car2);
 //        delivery2.setCar_orders(car_orders2);
 //        delivery2.setType("ship");
 //
@@ -106,7 +103,8 @@ public class Main {
 //
 //
 //        session.getTransaction().commit();
-//        System.out.println("Done");                   //DEFAULT
+        test2();
+        test3();
 //
 // JSON TO JAVA
 //       Carspecs carspecs = null;
@@ -205,7 +203,7 @@ public class Main {
 
 
     }
-    public static void test2() {
+    public static void test2() { //datab to JSON
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT k FROM Car k");
@@ -219,46 +217,60 @@ public class Main {
         query = session.createQuery("SELECT k FROM Delivery k");
         List<Delivery> deliver = query.list();
 
-//        for (Carspecs carspec: carsp) {
-//            for (Car car: crs) {
-//                if (carspec.getID().equals(car.getID())) {
-//                    carspec.setCar(car);
-//                }
-//            }
-//        }
-
-//        for (ItemLocation itemlc: items_locations) {
-//            for (Item item: items) {
-//                if (itemlc.getItem_id().equals(item.getID())) {
-//                    itemlc.setItem(item);
-//                }
-//            }
-//            for (Shop shop: shops) {
-//                if (itemlc.getShop_id().equals(shop.getID())) {
-//                    itemlc.setShop(shop);
-//                }
-//            }
-//        }
-//
-//
-//        for (Stuff stuff: stuffs) {
-//            for (Shop shop: shops) {
-//                if (stuff.getShop_id().equals(shop.getID())) {
-//                    stuff.setShop(shop);
-//                }
-//            }
-//        }
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/carspecs.json"), carsp);
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/delivery.json"), deliver);
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car_creators.json"), carcreat);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car_orders.json"), carord);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car.json"), crs);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
+
+    }
+    public static void test3() {//datab to XML
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("SELECT k FROM Car k");
+        List<Car> crs = query.list();
+        query = session.createQuery("SELECT k FROM Carspecs k");
+        List<Carspecs> carsp = query.list();
+        query = session.createQuery("SELECT k FROM Car_orders k");
+        List<Car_orders> carord = query.list();
+        query = session.createQuery("SELECT k FROM Car_creators k");
+        List<Car_creators> carcreat = query.list();
+        query = session.createQuery("SELECT k FROM Delivery k");
+        List<Delivery> deliver = query.list();
+
+
+        ObjectMapper xmlMapper = new XmlMapper();
+        try {
+            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/carspecs.xml"), carsp);
+            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/delivery.xml"), deliver);
+            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car_creators.xml"), carcreat);
+            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car_orders.xml"), carord);
+            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/car.xml"), crs);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void test4(){//json to datab
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            List<Car> car = objectMapper.readValue(new File("target/car.json"), new TypeReference<List<Car>>(){});
+            List<Carspecs> carsp = objectMapper.readValue(new File("target/carspecs.json"), new TypeReference<List<Carspecs>>(){});
+            List<Delivery> deliver = objectMapper.readValue(new File("target/delivery.json"), new TypeReference<List<Delivery>>(){});
+            List<Car_creators> carcreat = objectMapper.readValue(new File("target/car_creators.json"), new TypeReference<List<Car_creators>>(){});
+            List<Car_orders> carord = objectMapper.readValue(new File("target/car_orders.json"), new TypeReference<List<Car_orders>>(){});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

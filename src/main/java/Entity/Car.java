@@ -8,7 +8,7 @@ public class Car  {
     private String creator;
     private String model;
     private String country;
-    private Carspecs carspecs;
+    //private Carspecs carspecs;
 
     public Car() {}
 
@@ -44,12 +44,12 @@ public class Car  {
         this.country = country;
     }
 
-    public Carspecs getCarspecs() {
-        return carspecs;
-    }
-
-    public void setCarspecs(Carspecs carspecs) {
-        this.carspecs = carspecs;
-    }
+//    public Carspecs getCarspecs() {
+//        return carspecs;
+//    }
+//
+//    public void setCarspecs(Carspecs carspecs) {
+//        this.carspecs = carspecs;
+//    }
 
 }
