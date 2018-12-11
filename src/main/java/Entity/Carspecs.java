@@ -52,4 +52,9 @@ public class Carspecs {
     public void setCar(Car car) {
         this.car = car;
     }
+    @Override
+    public String toString()
+    {
+        return "Car_specs ["+ ID +" "+ body +" "+ color +" "+ engine_size +"]";
+    }
 }
