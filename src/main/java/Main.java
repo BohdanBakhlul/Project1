@@ -202,7 +202,7 @@ public class Main {
 
     }
 
-    public static void xmltodb(){//xml to datab
+    public static void xmltodb(){
         ObjectMapper xmlMapper = new XmlMapper();
         try {
             List<Car> car = xmlMapper.readValue(new File("target/car1.xml"), new TypeReference<List<Car>>(){});

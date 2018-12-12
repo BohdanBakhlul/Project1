@@ -10,7 +10,6 @@ public class Car_orders {
     private String city;
     private Integer amount;
     private Car car;
- //   private Delivery delivery;
 
     public Car_orders() {
     }
