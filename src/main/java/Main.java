@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Session session = HibernateUtil.getSessionFactory().openSession(); //zapolniayem ebatb
+//        Session session = HibernateUtil.getSessionFactory().openSession(); //zapolniayem ebatb
 
 //        session.beginTransaction(); //DEFAULT
 //
@@ -103,8 +103,9 @@ public class Main {
 //
 //
 //        session.getTransaction().commit();
-        test2();
-        test3();
+//        test2();
+//        test3();
+        test4();
 //
 // JSON TO JAVA
 //       Carspecs carspecs = null;
@@ -263,11 +264,19 @@ public class Main {
     public static void test4(){//json to datab
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            List<Car> car = objectMapper.readValue(new File("target/car.json"), new TypeReference<List<Car>>(){});
-            List<Carspecs> carsp = objectMapper.readValue(new File("target/carspecs.json"), new TypeReference<List<Carspecs>>(){});
-            List<Delivery> deliver = objectMapper.readValue(new File("target/delivery.json"), new TypeReference<List<Delivery>>(){});
-            List<Car_creators> carcreat = objectMapper.readValue(new File("target/car_creators.json"), new TypeReference<List<Car_creators>>(){});
-            List<Car_orders> carord = objectMapper.readValue(new File("target/car_orders.json"), new TypeReference<List<Car_orders>>(){});
+            List<Car> car = objectMapper.readValue(new File("target/car1.json"), new TypeReference<List<Car>>(){});
+            List<Carspecs> carsp = objectMapper.readValue(new File("target/carspecs1.json"), new TypeReference<List<Carspecs>>(){});
+//            List<Delivery> deliver = objectMapper.readValue(new File("target/delivery.json"), new TypeReference<List<Delivery>>(){});
+//            List<Car_creators> carcreat = objectMapper.readValue(new File("target/car_creators.json"), new TypeReference<List<Car_creators>>(){});
+//            List<Car_orders> carord = objectMapper.readValue(new File("target/car_orders.json"), new TypeReference<List<Car_orders>>(){});
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            for (Carspecs t: carsp) {
+                session.save(t);
+            }
+            session.getTransaction().commit();
         } catch (IOException e) {
             e.printStackTrace();
         }
