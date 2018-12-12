@@ -7,7 +7,6 @@ public class Delivery {
     private Integer ORDER_ID;
     private String type;
     private Car_orders car_orders;
-//    private Car car;
 
     public Delivery() {
     }
@@ -42,11 +41,4 @@ public class Delivery {
         return "Types [" + type + "]";
     }
 
-//    public Car getCar() {
-//        return car;
-//    }
-//
-//    public void setCar(Car car) {
-//        this.car = car;
-//    }
 }

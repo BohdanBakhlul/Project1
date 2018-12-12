@@ -29,7 +29,7 @@ public class Main {
 
     }
 
-    public static void fillwithvalues() {//filling the db
+    public static void fillwithvalues() {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -114,7 +114,7 @@ public class Main {
 
         session.getTransaction().commit();
     }
-    public static void dbtojson() { //datab to JSON
+    public static void dbtojson() {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT k FROM Car k");
@@ -143,7 +143,7 @@ public class Main {
 
 
     }
-    public static void dbtoxml() {//datab to XML
+    public static void dbtoxml() {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT k FROM Car k");
@@ -171,7 +171,7 @@ public class Main {
 
     }
 
-    public static void jsontodb(){//json to datab
+    public static void jsontodb(){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             List<Car> car = objectMapper.readValue(new File("target/car1.json"), new TypeReference<List<Car>>(){});
@@ -214,9 +214,6 @@ public class Main {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-//            for (Car t: car) {
-//                session.save(t);
-//            }
             for (Carspecs t: carsp) {
                 session.save(t);
             }
@@ -236,7 +233,7 @@ public class Main {
 
     }
 
-    public static void showqrs(){//queries
+    public static void showqrs(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT k FROM Car k");
         List<Car> crs = query.list();

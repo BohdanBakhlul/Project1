@@ -69,12 +69,4 @@ public class Car_orders {
         return "Amount [" + amount + "]";
     }
 
-//    public Delivery getDelivery() {
-//        return delivery;
-//    }
-//
-//    public void setDelivery(Delivery delivery) {
-//        this.delivery = delivery;
-//    }
-
 }
