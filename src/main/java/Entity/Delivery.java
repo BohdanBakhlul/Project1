@@ -36,6 +36,12 @@ public class Delivery {
         this.car_orders = car_orders;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Types [" + type + "]";
+    }
+
 //    public Car getCar() {
 //        return car;
 //    }

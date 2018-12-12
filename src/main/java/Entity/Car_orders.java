@@ -63,6 +63,12 @@ public class Car_orders {
         this.car = car;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Amount [" + amount + "]";
+    }
+
 //    public Delivery getDelivery() {
 //        return delivery;
 //    }

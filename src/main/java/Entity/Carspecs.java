@@ -55,6 +55,6 @@ public class Carspecs {
     @Override
     public String toString()
     {
-        return "Car_specs ["+ ID +" "+ body +" "+ color +" "+ engine_size +"]";
+        return "Car_specs [" + color + "]";
     }
 }

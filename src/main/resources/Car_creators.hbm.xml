@@ -24,7 +24,7 @@
         </property>
 
 
-        <many-to-one name="car" class="Entity.Car"
+        <many-to-one name="car" class="Entity.Car" cascade="all"
                      column="CAR_ID" not-null="true"/>
     </class>
 

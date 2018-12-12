@@ -52,4 +52,10 @@ public class Car_creators {
     public void setCar(Car car) {
         this.car = car;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Surnames ["+ surname + "]";
+    }
 }

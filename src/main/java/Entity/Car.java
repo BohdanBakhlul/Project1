@@ -43,6 +43,11 @@ public class Car  {
     public void setCountry(String country) {
         this.country = country;
     }
+    @Override
+    public String toString()
+    {
+        return "Car ["+ "ID:" + ID +" Creator:"+ creator +" Model:"+ model +" Country:"+ country +"]";
+    }
 
 //    public Carspecs getCarspecs() {
 //        return carspecs;
