@@ -23,7 +23,7 @@ public class Main {
 //        dbtoxml();
 //        jsontodb();
 //        xmltodb();
-//        showqrs();
+        showqrs();
 
 
 
@@ -244,9 +244,16 @@ public class Main {
         query = session.createQuery("SELECT amount FROM Car_orders");
         List<Car_orders> carord = query.list();
         System.out.println(carord);
-        query = session.createQuery("SELECT surname FROM Car_creators");
+        query = session.createQuery("SELECT k FROM Car_creators k");
+        int pageNumber = 1;
+        int pageSize = 2;
+        query.setFirstResult((pageNumber-1) * pageSize);
+        query.setMaxResults(pageSize);
         List<Car_creators> carcreat = query.list();
-        System.out.println(carcreat);
+        for (Car_creators car_creators: carcreat){
+            System.out.println(car_creators.getSurname());
+        }
+//        System.out.println(carcreat);
         query = session.createQuery("SELECT type FROM Delivery");
         List<Delivery> deliver = query.list();
         System.out.println(deliver);

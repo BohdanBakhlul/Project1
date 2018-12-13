@@ -53,9 +53,9 @@ public class Car_creators {
         this.car = car;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Surnames ["+ surname + "]";
-    }
+//    @Override
+//    public String toString()
+//    {
+//        return "Surnames ["+ surname + "]";
+//    }
 }
